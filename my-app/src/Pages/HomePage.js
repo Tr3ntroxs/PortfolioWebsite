@@ -16,11 +16,16 @@ import { ImPhone } from "react-icons/im";
 
 export default function HomePage() {
 
+    const [youtubeID] = useState('mcQqo48Ymro');
+
     // Slides example
     const slides = [
+        // Images
         {type: 'image', url: 'http://localhost:3000/image-1.jpg', title: 'Test1'},
         {type: 'image', url: 'http://localhost:3000/image-2.jpg', title: 'Test2'},
-        {type: 'video', url: 'https://www.youtube.com/watch?v=mcQqo48Ymro', title: 'Test3'}
+
+        // Youtube video
+        {type: 'video', url: `https://youtube.com/embed/${youtubeID}?autoplay=0`, title: 'Test3'}
     ]
 
     // Content of message

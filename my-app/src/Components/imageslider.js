@@ -35,10 +35,12 @@ const ImageSlider = ({ slides }) => {
                     {slides[currentIndex].type === 'image' ? (
                         <img src={slides[currentIndex].url} alt="slide"></img>
                     ) : (
-                        <video controls>
-                            <source src={slides[currentIndex].url} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe className='video'
+                                title='Youtube player'
+                                sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+                                src={slides[currentIndex].url}
+                                alt="slide">
+                        </iframe>
                     )}
                 </div>
                 <div className="dots">
