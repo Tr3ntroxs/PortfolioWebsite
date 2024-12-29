@@ -2,62 +2,11 @@ import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
+import "./imageslider.css"
+
 const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const container = {
-        width: "500px",
-        height: "280px",
-        margin: "0 auto"
-    };
-
-    const slider = {
-        height: "100%",
-        position: "relative"
-    };
-
-    const slide = {
-        width: "100%",
-        height: "100%",
-        borderRadius: "10px",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundImage: `url(${slides[currentIndex].url})`
-    };
-
-    const rightarrow = {
-        position: "absolute",
-        top: "50%",
-        transform: "translate(0, -50%)",
-        right: "12px",
-        fontSize: "45px",
-        color: "#FFFFFF",
-        zIndex: 1,
-        cursor: "pointer",
-      };
-      
-      const leftarrow = {
-        position: "absolute",
-        top: "50%",
-        transform: "translate(0, -50%)",
-        left: "12px",
-        fontSize: "45px",
-        color: "#FFFFFF",
-        zIndex: 1,
-        cursor: "pointer",
-      };
-
-      const dots = {
-        display: "flex",
-        justifyContent: "center",
-      };
-      
-      const dot = {
-        margin: "0 3px",
-        cursor: "pointer",
-        fontSize: "20px",
-      };
-    
     // Arrow functions
     const goBack = () => {
         const isFirst = currentIndex === 0;
@@ -76,16 +25,25 @@ const ImageSlider = ({ slides }) => {
     }
 
     return (
-        <div style={container}>
-            <div style={slider}>
-                <div>
-                    <div style={leftarrow} onClick={goBack}><FaArrowLeft /></div>
-                    <div style={rightarrow} onClick={goForth}><FaArrowRight /></div>
+        <div className="slider-container">
+            <div className="slider">
+                <div className="arrows">
+                    <div className="leftarrow" onClick={goBack}><FaArrowLeft /></div>
+                    <div className="rightarrow" onClick={goForth}><FaArrowRight /></div>
                 </div>
-                <div style={slide}></div>
-                <div style = {dots}>
+                <div className="slide">
+                    {slides[currentIndex].type === 'image' ? (
+                        <img src={slides[currentIndex].url} alt="slide"></img>
+                    ) : (
+                        <video controls>
+                            <source src={slides[currentIndex].url} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    )}
+                </div>
+                <div className="dots">
                     {slides.map((slide, slideIndex) => (
-                        <div key={slideIndex} style={dot} onClick={() => goToSlide(slideIndex)}>O</div>
+                        <div key={slideIndex} className="dot" onClick={() => goToSlide(slideIndex)}>O</div>
                     ))}
                 </div>
             </div>
