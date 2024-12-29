@@ -7,17 +7,19 @@ body {
 }
 
 .nav {
-    background-color: rgb(5, 47, 82);
+    height: 4rem;
+    background-color: rgba(7, 57, 99, 0.705);
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     gap: 2rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .home {
     font-size: 2rem;
+    transition: 0.5s;
 }
 
 .nav ul {
@@ -25,7 +27,7 @@ body {
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
     
 .nav a {
@@ -35,18 +37,26 @@ body {
     display: flex;
     align-items: center;
     padding: 0.25rem;
+    transition: .5s;
 }
 
 .nav a:hover {
     color: #000a92;
+}
+
+.nav li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
     transition: .5s;
 }
 
-.nav li.active {
+/* .nav li.active {
     background-color: #000a92;
-}
+} */
 
-.nav li:hover {
+.nav li:hover, .nav .home:hover {
     background-color: #4850b4;
     transition: .3s;
 }
