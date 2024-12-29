@@ -18,9 +18,9 @@ export default function HomePage() {
 
     // Slides example
     const slides = [
-        {url: 'http://localhost:3000/image-1.jpg', title: 'Test1'},
-        {url: 'http://localhost:3000/image-2.jpg', title: 'Test2'},
-        {url: 'http://localhost:3000/image-3.jpg', title: 'Test3'}
+        {type: 'image', url: 'http://localhost:3000/image-1.jpg', title: 'Test1'},
+        {type: 'image', url: 'http://localhost:3000/image-2.jpg', title: 'Test2'},
+        {type: 'video', url: 'https://www.youtube.com/watch?v=mcQqo48Ymro', title: 'Test3'}
     ]
 
     // Content of message
@@ -55,35 +55,33 @@ export default function HomePage() {
     return (
         <div className="page">
             <h1>Limitations are rules meant to be broken</h1>
-            <ImageSlider slides={slides}></ImageSlider>
-            <img src={require("../Images/background.jpg")}></img>
+            <div className="introductory">
+                <ImageSlider slides={slides}></ImageSlider>
+            </div>
 
+            <img src={require("../Images/background.jpg")} className="background-image"></img>
 
             <div className="about">
-                <div className="container">
-                    {/* <div class="about-col-1">
-                        <img src="./Images/portrait.PNG"></img>
-                    </div> */}
-                    <div class="about-col-2">
-                        <h1>About Me</h1>
-                        <p>My name is Trent Maffeo, and I am currently attending
-                        Rensselaer Polytechnic Institute for a dual in Computer Science
-                        and Computer Systems Engineering. I really love to work on various
-                        CS projects pertaining to circuitry and deep-learning.</p>
+                <img src={require("../Images/portrait.PNG")} alt="Portrait"></img>
+                <div class="about-col">
+                    <h1>About Me</h1>
+                    <p>My name is Trent Maffeo, and I am currently attending
+                    Rensselaer Polytechnic Institute for a dual in Computer Science
+                    and Computer Systems Engineering. I really love to work on various
+                    CS projects pertaining to circuitry and deep-learning.</p>
 
-                        <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                            <p class="tab-links" onclick="opentab('education')">Education</p>
-                        </div>
-                        {/* <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li><span>UI/UX</span><br/>Designing web/app interfaces</li>
-                                <li><span>Robotics</span><br/>Circuitry & component programming</li>
-                                <li><span>Deep learning</span><br/>Applying deep learning models</li>
-                            </ul>
-                        </div> */}
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
+                    {/* <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br/>Designing web/app interfaces</li>
+                            <li><span>Robotics</span><br/>Circuitry & component programming</li>
+                            <li><span>Deep learning</span><br/>Applying deep learning models</li>
+                        </ul>
+                    </div> */}
                 </div>
             </div>
 
